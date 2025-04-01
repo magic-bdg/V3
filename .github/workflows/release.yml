@@ -5,76 +5,33 @@ on:
 
 jobs:
   build:
-    runs-on: macos-15 # Updated from macos-15 which doesn't exist yet
+    runs-on: macos-15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4 # Updated to v4
+        uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install dependencies (packages)
         run: |
           curl -LO https://github.com/ProcursusTeam/ldid/releases/download/v2.1.5-procursus7/ldid_macosx_x86_64
           sudo install -m755 ldid_macosx_x86_64 /usr/local/bin/ldid
           brew install 7zip gnu-sed
 
-      - name: Set up Swift environment
-        uses: swift-actions/setup-swift@v2
-        with:
-          swift-version: '6.0' # Set Swift version to match Package.swift
-
-      - name: Prepare build environment
+      - name: Compile f
         run: | 
-          mkdir -p upload
-
-      # Compile using SPM + xcodebuild with optimizations instead of make
-      - name: Compile with Swift Package Manager and optimizations
-        run: |
-          # Resolve dependencies
-          swift package resolve
-          
-          # Build with optimizations from Package.swift
-          xcodebuild -scheme "backdoor (Release)" -sdk iphoneos -configuration Release \
-            -derivedDataPath ./DerivedData \
-            -destination 'generic/platform=iOS' \
-            CODE_SIGN_IDENTITY="-" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO \
-            ONLY_ACTIVE_ARCH=NO \
-            BUILD_LIBRARIES_FOR_DISTRIBUTION=YES \
-            SUPPORTS_MACCATALYST=NO \
-            SWIFT_OPTIMIZATION_LEVEL="-O" \
-            OTHER_SWIFT_FLAGS="-cross-module-optimization" \
-            GCC_OPTIMIZATION_LEVEL=3 \
-            SWIFT_COMPILATION_MODE=wholemodule
-            
-          # Find the app in build products
-          APP_PATH=$(find ./DerivedData/Build/Products/Release-iphoneos -name "*.app" -type d | head -n 1)
-          if [ -z "$APP_PATH" ]; then
-            echo "Error: Could not find .app file in build products"
-            exit 1
-          fi
-          
-          echo "Found app at: $APP_PATH"
-          
-          # Sign with ldid
-          ldid -S "$APP_PATH"
-          
-          # Create Payload directory and package into IPA
-          mkdir -p Payload
-          cp -r "$APP_PATH" Payload/
-          zip -r upload/backdoor.ipa Payload
+          mkdir upload
+          make package SCHEME="'backdoor (Release)'" CFLAGS="-Onone"
+          mv packages/* upload/
 
       - name: Get Version Number
         id: get_version
         run: |
           VERSION=$( /usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" Payload/backdoor.app/Info.plist )
           echo "VERSION=${VERSION}" >> $GITHUB_ENV
-          echo "Version detected: $VERSION"
 
-      - name: Setup release files
+      - name: Setup
         run: |
           mv upload/backdoor.ipa upload/backdoor_v${VERSION}.ipa
           cp upload/backdoor_v${VERSION}.ipa upload/backdoor_v${VERSION}.tipa
-          ls -la upload/
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -86,4 +43,4 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Fixed to use secrets.GITHUB_TOKEN
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
