@@ -1,4 +1,4 @@
-// swift-tools-version:5.10
+// swift-tools-version:5.9
 import PackageDescription
 
 let package = Package(
@@ -43,7 +43,7 @@ let package = Package(
         // Server and Networking - Latest Vapor for modern Swift
         .package(url: "https://github.com/vapor/vapor.git", from: "4.92.4"),           
         
-        // Required Vapor dependencies - Updated for Swift 5.10 compatibility
+        // Required Vapor dependencies - Updated for Swift 5.9 compatibility
         .package(url: "https://github.com/swift-server/async-http-client.git", from: "1.25.2"),
         .package(url: "https://github.com/vapor/websocket-kit.git", from: "2.14.0"),
         .package(url: "https://github.com/vapor/async-kit.git", from: "1.20.0"),
@@ -54,7 +54,7 @@ let package = Package(
         // Security and Encryption - IMPORTANT: Using original OpenSSL package for zsign compatibility
         .package(url: "https://github.com/HAHALOSAH/OpenSSL-Swift-Package.git", branch: "main"),
         
-        // Networking and SSL - Updated for Swift 5.10 compatibility
+        // Networking and SSL - Updated for Swift 5.9 compatibility
         .package(url: "https://github.com/apple/swift-nio.git", from: "2.69.0"),
         .package(url: "https://github.com/apple/swift-nio-ssl.git", from: "2.27.0"),
         .package(url: "https://github.com/apple/swift-nio-transport-services.git", from: "1.21.0"),
@@ -68,7 +68,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-algorithms.git", from: "1.2.0"),
         .package(url: "https://github.com/apple/swift-collections.git", from: "1.0.5"),
         
-        // Async/Await enhancements (for Swift 5.10 and above)
+        // Async/Await enhancements (for Swift 5.9 and above)
         .package(url: "https://github.com/apple/swift-async-algorithms.git", from: "1.0.0"),
     ],
     targets: [
