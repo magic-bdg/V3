@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest # Updated from macos-15 which doesn't exist yet
+    runs-on: macos15 # Updated from macos-15 which doesn't exist yet
     steps:
       - name: Checkout
         uses: actions/checkout@v4 # Updated to v4
