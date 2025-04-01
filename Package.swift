@@ -70,6 +70,10 @@ let package = Package(
         
         // Async/Await enhancements (for Swift 5.10 and above)
         .package(url: "https://github.com/apple/swift-async-algorithms.git", from: "1.0.0"),
+        
+        // Pin Swift System to a compatible version
+        .package(url: "https://github.com/apple/swift-system.git", exact: "1.2.1"),
+        .package(url: "https://github.com/apple/swift-atomics.git", exact: "1.1.0"),
     ],
     targets: [
         .target(
@@ -118,6 +122,10 @@ let package = Package(
                 .product(name: "Algorithms", package: "swift-algorithms"),
                 .product(name: "Collections", package: "swift-collections"),
                 .product(name: "AsyncAlgorithms", package: "swift-async-algorithms"),
+                
+                // Pinned system dependencies
+                .product(name: "SystemPackage", package: "swift-system"),
+                .product(name: "Atomics", package: "swift-atomics"),
             ],
             path: ".",
             exclude: [
@@ -146,7 +154,10 @@ let package = Package(
                 
                 // Release optimization settings
                 .define("RELEASE", .when(configuration: .release)),
-                .unsafeFlags(["-O", "-cross-module-optimization"], .when(configuration: .release))
+                .unsafeFlags(["-O", "-cross-module-optimization"], .when(configuration: .release)),
+                
+                // Add Darwin import for system functions
+                .unsafeFlags(["-Xcc", "-D_DARWIN_C_SOURCE"])
             ]
         )
     ],
