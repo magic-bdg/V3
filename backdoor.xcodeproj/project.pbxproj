@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 73;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -58,43 +58,11 @@
 		AA280D942C76AB7400CAC838 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3382319E2D7A77CA00999AD3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 33BA378A2BF8159F00FF530A /* backdoor */;
-		};
-		338232182D7A77E800999AD3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ellekit.deb,
-			);
-			target = 33BA378A2BF8159F00FF530A /* backdoor */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+/*/* PBXFileSystemSynchronizedBuildFileExceptionSet section removed for compatibility */
 
-/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
-		338232192D7A77E800999AD3 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
-			buildPhase = 33BA37892BF8159F00FF530A /* Resources */;
-			membershipExceptions = (
-				ellekit.deb,
-			);
-		};
-/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+/*/* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section removed for compatibility */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		338231502D7A77CA00999AD3 /* iOS */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (3382319E2D7A77CA00999AD3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = iOS; sourceTree = "<group>"; };
-		338231AE2D7A77E700999AD3 /* Data */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Data; sourceTree = "<group>"; };
-		338231C12D7A77E700999AD3 /* Management */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Management; sourceTree = "<group>"; };
-		338231CC2D7A77E700999AD3 /* Design */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Design; sourceTree = "<group>"; };
-		338231D22D7A77E700999AD3 /* Resources */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (338232182D7A77E800999AD3 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, 338232192D7A77E800999AD3 /* PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Resources; sourceTree = "<group>"; };
-		338231DB2D7A77E700999AD3 /* Server */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Server; sourceTree = "<group>"; };
-		338232032D7A77E700999AD3 /* Magic */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Magic; sourceTree = "<group>"; };
-		338232162D7A77E700999AD3 /* Logging */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Logging; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
+/*/* PBXFileSystemSynchronizedRootGroup section removed for compatibility */
 
 /* Begin PBXFrameworksBuildPhase section */
 		33BA37882BF8159F00FF530A /* Frameworks */ = {
@@ -128,13 +96,13 @@
 			isa = PBXGroup;
 			children = (
 				33BF31542C7C033C0087F3D2 /* Localizations */,
-				338231CC2D7A77E700999AD3 /* Design */,
-				338231AE2D7A77E700999AD3 /* Data */,
-				338232162D7A77E700999AD3 /* Logging */,
-				338231DB2D7A77E700999AD3 /* Server */,
-				338232032D7A77E700999AD3 /* Magic */,
-				338231C12D7A77E700999AD3 /* Management */,
-				338231D22D7A77E700999AD3 /* Resources */,
+				/* Design */,
+				/* Data */,
+				/* Logging */,
+				/* Server */,
+				/* Magic */,
+				/* Management */,
+				/* Resources */,
 				33BE87A62C72F5720044D245 /* SWCompression.md */,
 				33DF8D7C2C0828CF00D6C05F /* Zsign.md */,
 				33DF8D7E2C0828FB00D6C05F /* Nuke.md */,
@@ -151,7 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				339CE2802C584C7C00B58502 /* Shared */,
-				338231502D7A77CA00999AD3 /* iOS */,
+				/* iOS */,
 				33BA378C2BF8159F00FF530A /* Products */,
 				33BE87902C72DAF90044D245 /* Frameworks */,
 				33BDD0992C76BD4700AF6169 /* Recovered References */,
@@ -206,16 +174,7 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				338231502D7A77CA00999AD3 /* iOS */,
-				338231AE2D7A77E700999AD3 /* Data */,
-				338231C12D7A77E700999AD3 /* Management */,
-				338231CC2D7A77E700999AD3 /* Design */,
-				338231D22D7A77E700999AD3 /* Resources */,
-				338231DB2D7A77E700999AD3 /* Server */,
-				338232032D7A77E700999AD3 /* Magic */,
-				338232162D7A77E700999AD3 /* Logging */,
-			);
+			/*/* fileSystemSynchronizedGroups removed for compatibility */
 			name = backdoor;
 			packageProductDependencies = (
 				3322FF4E2BFEE5B9001768D8 /* Nuke */,
