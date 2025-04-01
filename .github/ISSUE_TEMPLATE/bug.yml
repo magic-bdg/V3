@@ -6,7 +6,7 @@ body:
     id: version
     attributes:
       label: Version
-      description: What is version you're running?
+      description: What is versi0n you're running?
       placeholder: iOS 17.1
     validations:
       required: true
